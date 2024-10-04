@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;background: linear-gradient(45deg, #9a1515);
+}
+.color-picker-container{
+    border: 1px solid rgb(4, 2, 2);
+    border-radius: 15px;
+    padding: 50px;
+    background: #7e3e3e;
+    box-shadow: #7e3e3e;
+}
+h1{
+    font-size: 50px;
+  margin-bottom: 10%;
+  text-shadow: 2px 2px 60px;
+
+}
+.Info{
+    margin-top: 20px;
+    color: black;
+}
+.color-label{
+    background: white;
+    padding: 20px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    display: flex;
+
+    cursor: pointer;
+    box-shadow: #000000;
+    margin-left: 250px;
+}
+.colorinput{
+    visibility: hidden;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="color-picker-container">
+        <h1>Choose your favourite color</h1>
+        <div class="picker-box">
+            <input type="color" 
+            id="colorPicker" class="colorinput">
+           <label for="colorPicker" class="color-label">
+            <span id="colorcode">#ffff</span>
+           </label>
+        </div>
+        <div class="Info">Gradient color change hoga apna, whenever as you pick your color</div>
+    </div>
+    <script>
+        const colorPicker = document.getElementById("colorPicker");
+        const colorcode = document.getElementById("colorcode");
+        colorPicker.addEventListener('input', function(){
+            const color = colorPicker.value;
+            colorcode.textContent = color.toUpperCase();
+            document.body.style.background = `linear-gradient(45deg, ${color}, ${color}50)`;
+        });
+    </script>
+   
+</body>
+</html>
